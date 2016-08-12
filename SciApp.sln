@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciApp.Desktop", "SciApp.Desktop\SciApp.Desktop.csproj", "{099204B2-3DAD-4B8C-BC4D-463741099B9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciApp.Web", "SciApp.Web\SciApp.Web.csproj", "{E5972BCD-6D3C-42DE-BBCB-271E9A4DB8DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{099204B2-3DAD-4B8C-BC4D-463741099B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{099204B2-3DAD-4B8C-BC4D-463741099B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{099204B2-3DAD-4B8C-BC4D-463741099B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{099204B2-3DAD-4B8C-BC4D-463741099B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5972BCD-6D3C-42DE-BBCB-271E9A4DB8DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5972BCD-6D3C-42DE-BBCB-271E9A4DB8DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5972BCD-6D3C-42DE-BBCB-271E9A4DB8DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5972BCD-6D3C-42DE-BBCB-271E9A4DB8DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
