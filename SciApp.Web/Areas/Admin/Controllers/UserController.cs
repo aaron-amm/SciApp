@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SciHospital.WebApp.Controllers
+namespace SciHospital.WebApp.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class UserController : Controller
     {
-        // GET: Home
+        // GET: Admin/User
         public ActionResult Index()
         {
-            return View();
+            return Content("/admin/user");
         }
     }
 }
