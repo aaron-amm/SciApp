@@ -111,6 +111,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Public\Controllers\IPatientRepository.cs" />
+    <Compile Include="Areas\Public\Controllers\Patient.cs" />
+    <Compile Include="Areas\Public\Controllers\PatientController.cs" />
     <Compile Include="Areas\Public\Controllers\UserController.cs" />
     <Compile Include="Areas\Public\PublicAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,6 +140,7 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Public\Models\" />
+    <Folder Include="Areas\Public\Views\Patient\" />
     <Folder Include="Areas\Public\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
