@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Text.RegularExpressions;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SciHospital.WebApp
@@ -27,6 +28,14 @@ public class CustomAuthorizeAttribute : AuthorizeAttribute
 
         return true;
     }
+
+        private static bool IsValidEmail(string email)
+        {
+            // Email address: RFC 2822 Format 
+            const string pattern = @"^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)$";
+            return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
+        }
+
 }
 
 
