@@ -14,12 +14,6 @@ namespace SciApp.Web.Test
 {
     public class RoutingTest
     {
-        [SetUp]
-        public void SetUp()
-        {
-
-
-        }
 
         [Test]
         public void GetRouteData_ValidRequestUrl_ReturnCorrectControllerAndAction()
@@ -88,6 +82,21 @@ namespace SciApp.Web.Test
             Assert.AreEqual("Index", action);
         }
 
+        [Test]
+        public void GetRouteData_WebFormUrl_ReturnCorrectAreaControllerAndActionName()
+        {
+            var routes = new RouteCollection();
+            Global.RegisterRoutes(routes);
+
+            var httpContextMock = MockRepository.GenerateMock<HttpContextBase>();
+            const string url = "~/hello";
+            httpContextMock.Stub(c => c.Request.AppRelativeCurrentExecutionFilePath).Return(url);
+
+            var routeData = routes.GetRouteData(httpContextMock);
+            var routeHandler = (WebFormRouteHandler) routeData.RouteHandler;
+
+            Assert.AreEqual("~/hello.aspx", routeHandler.VirtualPath);
+        }
 
     }
 }
