@@ -8,10 +8,16 @@ namespace SciHospital.WebApp.Areas.Public.Controllers
 {
     public class PatientController : Controller
     {
-        private IPatientRepository patientRepository;
+        private readonly IPatientRepository patientRepository;
+
         public PatientController(IPatientRepository patientRepository)
         {
             this.patientRepository = patientRepository;
+        }
+        public ActionResult Get(int id)
+        {
+            var patient = patientRepository.GetPatient(id);
+            return View(patient);
         }
 
         public ActionResult UpdatePatient(int id, string firstName, string lastName, DateTime? dateOfBirth)
@@ -25,5 +31,9 @@ namespace SciHospital.WebApp.Areas.Public.Controllers
             return View(patient);
         }
 
+        public  ActionResult Index()
+        {
+            return View();
+        }
     }
 }

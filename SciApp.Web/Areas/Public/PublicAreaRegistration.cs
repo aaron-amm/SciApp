@@ -4,19 +4,15 @@ namespace SciHospital.WebApp.Areas.Public
 {
     public class PublicAreaRegistration : AreaRegistration 
     {
-        public override string AreaName 
-        {
-            get 
-            {
-                return "Public";
-            }
-        }
+        public const string NameForArea = "Public";
+        public override string AreaName => NameForArea;
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
+            var urlPattern = string.Format("{0}/{{controller}}/{{action}}/{{id}}",NameForArea);
             context.MapRoute(
                 "Public_default",
-                "public/{controller}/{action}/{id}",
+                urlPattern,
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

@@ -9,4 +9,12 @@ namespace SciHospital.WebApp.Areas.Public.Controllers
     {
         Patient GetPatient(int id);
     }
+
+    public  class PatientRepository : IPatientRepository
+    {
+        public Patient GetPatient(int id)
+        {
+            return new Patient() {Id = id};
+        }
+    }
 }
