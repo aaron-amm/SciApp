@@ -28,6 +28,10 @@ namespace SciHospital.WebApp
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
                 ).DataTokens.Add("area", PublicAreaRegistration.NameForArea);
 
+            //ignore static file to not get match with mvc default route
+            //match static file like ~/styles/style.css?version=1
+//            routes.IgnoreRoute("{*ignoreFile}", new { ignoreFile = @".*\.(?:css|js|gif|jpg|png|svg|ico|ashx|woff|woff2|ttf|asmx|aspx)(?:\?.*)?" });
+//            routes.IgnoreRoute("{resource}.{ignoreExtension}/{*pathInfo}", new  { ignoreExtension = "axd|asmx"});
 
         }
 
