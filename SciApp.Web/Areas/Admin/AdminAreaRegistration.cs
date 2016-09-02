@@ -4,13 +4,8 @@ namespace SciHospital.WebApp.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {
-        public override string AreaName 
-        {
-            get 
-            {
-                return "Admin";
-            }
-        }
+        public const string NameForArea = "Admin";
+        public override string AreaName => NameForArea;
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
