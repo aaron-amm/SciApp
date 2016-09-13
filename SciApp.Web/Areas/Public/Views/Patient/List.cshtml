@@ -1,0 +1,24 @@
+﻿@model SciHospital.WebApp.Areas.Public.Controllers.ListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.ListBoxFor(m => m.SelectedList, Model.AvailableList, new {style = "width:200px"})
+    </div>
+    <div>
+        <input type="submit" value="save"/>
+    </div>
+}
+</body>
+</html>

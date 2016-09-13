@@ -149,6 +149,7 @@
     <Content Include="Areas\Public\Views\Patient\index.cshtml" />
     <Content Include="Areas\Public\Views\Home\Index.cshtml" />
     <Content Include="Areas\Public\Views\Patient\Get.cshtml" />
+    <Content Include="Areas\Public\Views\Patient\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -10,6 +10,9 @@ namespace SciHospital.WebApp.Areas.Public.Controllers
     {
         private readonly IPatientRepository patientRepository;
 
+        private readonly SelectListItem[] availableList =
+            new[] {"a", "b", "c", "d"}.Select(e => new SelectListItem() {Value = e, Text = e}).ToArray();
+
         public PatientController(IPatientRepository patientRepository)
         {
             this.patientRepository = patientRepository;
@@ -35,5 +38,34 @@ namespace SciHospital.WebApp.Areas.Public.Controllers
         {
             return View();
         }
+
+        public ActionResult List()
+        {
+            var viewModel = new ListViewModel
+            {
+                SelectedList = new []{"a", "b"},
+                AvailableList = availableList
+            };
+            return View(viewModel);
+
+        }
+
+        [HttpPost]
+        public ActionResult List(ListViewModel viewModel)
+        {
+            viewModel.AvailableList = availableList;
+            return View(viewModel);
+
+        }
+
+
+
+    }
+
+    public  class ListViewModel
+    {
+        public SelectListItem[] AvailableList { get; set; }
+        public  string[] SelectedList { get; set; }
+
     }
 }
