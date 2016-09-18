@@ -143,14 +143,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Areas\Public\Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Public\Views\Patient\index.cshtml" />
     <Content Include="Areas\Public\Views\Home\Index.cshtml" />
     <Content Include="Areas\Public\Views\Patient\Get.cshtml" />
+    <Content Include="Areas\Public\Views\Patient\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,7 +165,6 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Public\Models\" />
     <Folder Include="Areas\Public\Views\Shared\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
