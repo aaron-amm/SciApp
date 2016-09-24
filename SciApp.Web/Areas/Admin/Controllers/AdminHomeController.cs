@@ -6,12 +6,12 @@ using System.Web.Mvc;
 
 namespace SciHospital.WebApp.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class AdminHomeController : Controller
     {
-        // GET: Admin/User
+        // GET: Admin/AdminHome
         public ActionResult Index()
         {
-            return Content("/admin/user");
+            return View();
         }
     }
 }

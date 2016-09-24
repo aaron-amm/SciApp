@@ -1,0 +1,30 @@
+﻿@model SciApp.Core.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+    <h2>log in</h2>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <div>
+                username:
+                @Html.TextBoxFor(m => m.Username)
+            </div>
+            <div>
+                password:
+                @Html.TextBoxFor(m => m.Password)
+            </div>
+
+            <input type="submit" id="btnLogIn" value="login" />
+        }
+    </div>
+</body>
+</html>

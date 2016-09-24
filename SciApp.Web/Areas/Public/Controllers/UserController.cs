@@ -1,21 +1,38 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using SciApp.Core;
 
 namespace SciHospital.WebApp.Areas.Public.Controllers
 {
     public class UserController : Controller
     {
-        // GET: Home
         public ActionResult Index()
         {
-            return Content("public/user");
+            if (TempData.ContainsKey("user"))
+            {
+                var model = TempData["user"] as User;
+                return View(model);
+            }
+            return View();
         }
 
         [Authorize]
         public ActionResult Strict()
         {
             return Content("public/user/strict");
+        }
+
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LogIn(User user)
+        {
+            TempData["user"] = user;
+            return RedirectToAction("Index");
         }
 
 
