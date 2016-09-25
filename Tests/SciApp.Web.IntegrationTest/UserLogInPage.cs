@@ -9,12 +9,12 @@ namespace SciApp.Web.IntegrationTest
     {
         public UserLogInPage(Session session) : base(session)
         {
-           
         }
 
         public ITextField<UserLogInPage> UserNameField => new TextField<UserLogInPage>(this, By.Id("Username"));
         public ITextField<UserLogInPage> PasswordField => new TextField<UserLogInPage>(this, By.Id("Password"));
         public ITextField<UserLogInPage> DateOfBirthField => new TextField<UserLogInPage>(this, By.Id("DateOfBirth"));
+        public DatePicker<UserLogInPage> DateOfBirth => new DatePicker<UserLogInPage>(this,By.Id("DateOfBirth"));
         public IClickable<UserHomePage> LoginButton => new Clickable<UserHomePage>(this,By.Id("btnLogIn"));
 
     }

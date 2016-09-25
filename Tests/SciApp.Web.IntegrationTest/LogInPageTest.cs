@@ -18,6 +18,7 @@ namespace SciApp.Web.IntegrationTest
                 .NavigateTo<UserLogInPage>("http://localhost:8080/user/login")
                 .UserNameField.EnterText("aaron")
                 .PasswordField.EnterText("12345")
+                .DateOfBirth.SelectDate(20)
                 .LoginButton.Click()
                 .UserNameSpan()
                 .Store(out userName, s => s.Text);
