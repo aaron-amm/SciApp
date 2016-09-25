@@ -63,6 +63,7 @@
     <Compile Include="LogInPageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpanElement.cs" />
+    <Compile Include="UserHomePage.cs" />
     <Compile Include="UserLogInPage.cs" />
   </ItemGroup>
   <ItemGroup>

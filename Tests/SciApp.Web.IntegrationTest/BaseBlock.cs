@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace SciApp.Web.IntegrationTest
 {
-    public class BaseBlock : Block
+    public class BaseBlock : WebBlock
     {
         public BaseBlock(Session session) : base(session)
         {
