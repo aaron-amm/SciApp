@@ -17,10 +17,14 @@
 
             
             $("#@Html.IdFor(m=>m.DateOfBirth)").datepicker({
+                changeMonth: true,
+                changeYear: true,
                 showOn: "both",
                 buttonImage: "/content/images/calendar.gif",
                 buttonImageOnly: true,
-                buttonText: "Select date"
+                buttonText: "Select date", 
+                dateFormat: "yy/mm/dd",
+                monthNamesShort: $.datepicker.regional["en"].monthNames
             });
 
         });
