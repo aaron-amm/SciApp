@@ -1,0 +1,19 @@
+﻿@model SciApp.Core.User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<h1 id="home">Home</h1>
+    <h2>User Home</h2>
+    @if (Model != null)
+    {
+        <h1>Hello <span id="lblUsername">@Model.Username</span></h1>
+    }
+
+</body>
+</html>
