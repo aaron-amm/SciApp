@@ -49,6 +49,7 @@
     <Compile Include="SeparatedValueHelperTest.cs" />
     <Compile Include="StringHelper.cs" />
     <Compile Include="StringHelperTest.cs" />
+    <Compile Include="WindowsUpdateApiTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
