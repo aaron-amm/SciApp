@@ -7,20 +7,20 @@ using OpenQA.Selenium.Support.UI;
 
 namespace SciApp.Web.IntegrationTest
 {
-    public class DatePicker<TResult> :  Clickable where TResult : IBlock
+    public class DatePicker<TParent> :  Clickable where TParent : IBlock
     {
         public DatePicker(IBlock parent, By by) : base(parent, by)
         {
         }
 
-        public DatePicker(TResult parent, IWebElement tag) : base(parent, tag)
+        public DatePicker(TParent parent, IWebElement tag) : base(parent, tag)
         {
 
         }
 
-        public TResult SelectDate(int selectedDate)
+        public TParent SelectDate(int selectedDate)
         {
-            Click<TResult>();
+            Click<TParent>();
 
             var driver =ParentBlock.Session.Driver;
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5000));
@@ -40,7 +40,7 @@ namespace SciApp.Web.IntegrationTest
                 }
             }
 
-            return Session.CurrentBlock<TResult>(this.ParentBlock.Tag);
+            return Session.CurrentBlock<TParent>(this.ParentBlock.Tag);
 
         }
 

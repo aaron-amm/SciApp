@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="GetPropertyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserTest.cs" />
+    <Compile Include="UserRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
