@@ -21,27 +21,28 @@ HelloCom::~HelloCom()
 	DllRelease();
 }
 
-
-
 //------------------------------------------------------------------------------
 //                   IUnknown Methods Implementations
 //------------------------------------------------------------------------------
-
-STDMETHODIMP HelloCom::QueryInterface(REFIID riid, void **ppvObject)
+STDMETHODIMP HelloCom::QueryInterface(REFIID comInterfaceId, void **ppComInterface)
 {
 	IUnknown *pUnk = nullptr;
-	if (riid == IID_IUnknown || riid == CLSID_IHelloCom )
+	if (comInterfaceId == IID_IUnknown || comInterfaceId == CLSID_IHelloCom)
 	{
+		//cast to IHelloCom COM interface
 		pUnk = static_cast<IHelloCom*>(this);
 	}
-
-	*ppvObject = pUnk;
+	//pointer of pointer , so we assign pointer to it
+	//pointer to COM interface object pointer
+	*ppComInterface = pUnk;
 
 	if (!pUnk)
 	{
+		//error no interface
 		return E_NOINTERFACE;
 	}
 
+	//add reference counter
 	pUnk->AddRef();
 	return S_OK;
 }
@@ -67,8 +68,10 @@ STDMETHODIMP_(ULONG) HelloCom::Release()
 }
 
 
-STDMETHODIMP  HelloCom::SayHello(BSTR * outputString )
+STDMETHODIMP  HelloCom::SayHello(BSTR * outputString)
 {
-	* outputString =	SysAllocString(L"Hello World");
+	//we change value of address that outputString point to
+	//pointer to Binary string, so we change value of that address with new binary string
+	*outputString = SysAllocString(L"Hello World");
 	return S_OK;
 }

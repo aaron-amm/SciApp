@@ -3,7 +3,7 @@
 #include "ClassFactory.h"
 #include "HelloCom.h"
 
-//anonymous namespace private to source file
+//anonymous name space private to source file
 namespace {
 
 	LONG dllObjCount = 0;
@@ -20,18 +20,19 @@ void DllRelease() {
 	InterlockedDecrement(&dllObjCount);
 }
 
-//
-// STDAPI == extern "C" HRESULT __stdcall
-//
+//set of C function to export
 
-STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, void **ppvObj)
+//STDAPI == EXTERN_C  HRESULT __stdcall
+//get COM  class factory
+STDAPI DllGetClassObject(REFCLSID comClassId, REFIID comClassFactoryId, void **ppComClassFactory)
 {
-	if (rclsid == CLSID_HelloCom) 
+	if (comClassId == CLSID_HelloCom)
 	{
-		return dllClassFactory.QueryInterface(riid, ppvObj);
+		return dllClassFactory.QueryInterface(comClassFactoryId, ppComClassFactory);
 	}
-	
-	*ppvObj = nullptr;
+
+	//assign address of null pointer
+	*ppComClassFactory = nullptr;
 	return CLASS_E_CLASSNOTAVAILABLE;
 }
 

@@ -40,7 +40,8 @@ namespace SciApp.Web.IntegrationTest
                 }
             }
 
-            return Session.CurrentBlock<TParent>(this.ParentBlock.Tag);
+            var parent= Session.CurrentBlock<TParent>(this.ParentBlock.Tag);
+            return parent;
 
         }
 

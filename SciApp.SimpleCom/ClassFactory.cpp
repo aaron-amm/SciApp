@@ -47,7 +47,7 @@ STDMETHODIMP_(ULONG) ClassFactory::Release()
 	return 1;
 }
 
-
+//pointer to pointer , this pointer can point to anything like dynamic object reference
 STDMETHODIMP ClassFactory::CreateInstance(IUnknown *pUnkOuter, REFIID riid, void **ppvObject)
 {
 	// Clear output parameter
