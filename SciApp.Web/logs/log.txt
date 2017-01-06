@@ -1,0 +1,1 @@
+2017-01-05 16:49:50.4845|INFO|SciHospital.WebApp.Global|application started

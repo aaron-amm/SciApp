@@ -31,8 +31,7 @@ namespace SciApp.Web.IntegrationTest
         [TearDown]
         public void TearDown()
         {
-            Threaded<Session>
-              .End();
+            Threaded<Session>.End();
         }
     }
 }

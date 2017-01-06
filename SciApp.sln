@@ -10,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{26715C5C-0BCE-416D-81DA-5617B10F4DDE}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		config.runsettings = config.runsettings
+		config.testsettings = config.testsettings
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -34,6 +36,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciApp.SimpleCom.Api", "SciApp.SimpleCom.Api\SciApp.SimpleCom.Api.csproj", "{4E1FA421-C8CA-48B7-976C-D18A86368190}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciApp.SimpleCom.Api.Test", "Tests\SciApp.SimpleCom.Api.Test\SciApp.SimpleCom.Api.Test.csproj", "{8DDEAB51-737C-4BD0-9F8E-9386408C1433}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciApp.MsTest", "Tests\SciApp.MsTest\SciApp.MsTest.csproj", "{78324C14-0150-4C00-8FE5-B77352BBB64B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -176,6 +180,18 @@ Global
 		{8DDEAB51-737C-4BD0-9F8E-9386408C1433}.Release|x64.Build.0 = Release|Any CPU
 		{8DDEAB51-737C-4BD0-9F8E-9386408C1433}.Release|x86.ActiveCfg = Release|Any CPU
 		{8DDEAB51-737C-4BD0-9F8E-9386408C1433}.Release|x86.Build.0 = Release|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Debug|x64.Build.0 = Debug|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Debug|x86.Build.0 = Debug|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Release|x64.ActiveCfg = Release|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Release|x64.Build.0 = Release|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Release|x86.ActiveCfg = Release|Any CPU
+		{78324C14-0150-4C00-8FE5-B77352BBB64B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -186,5 +202,6 @@ Global
 		{5C75170D-7AE2-4609-A53C-0E206A37679B} = {26715C5C-0BCE-416D-81DA-5617B10F4DDE}
 		{E877945E-C8F5-4951-9161-5666371315E9} = {08C25A28-D648-43BF-8D3F-D4BED73DD8EB}
 		{8DDEAB51-737C-4BD0-9F8E-9386408C1433} = {08C25A28-D648-43BF-8D3F-D4BED73DD8EB}
+		{78324C14-0150-4C00-8FE5-B77352BBB64B} = {08C25A28-D648-43BF-8D3F-D4BED73DD8EB}
 	EndGlobalSection
 EndGlobal

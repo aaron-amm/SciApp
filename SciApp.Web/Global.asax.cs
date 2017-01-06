@@ -10,6 +10,7 @@ using System.Web.Http;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using NLog;
 using SciHospital.WebApp.Areas.Public;
 using SciHospital.WebApp.Areas.Public.Controllers;
 
@@ -18,6 +19,7 @@ namespace SciHospital.WebApp
     public class Global : HttpApplication
     {
         private static IWindsorContainer container;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         private static void BootstrapContainer()
         {
@@ -29,8 +31,7 @@ namespace SciHospital.WebApp
             container.Kernel.Register(
                 Component.For<IPatientRepository>()
                 .ImplementedBy<PatientRepository>()
-                .LifestyleTransient() 
-                );
+                .LifestyleTransient());
         }
 
         protected void Application_Start(object sender, EventArgs e)
@@ -43,6 +44,8 @@ namespace SciHospital.WebApp
             // AreaRegistration.RegisterAllAreas();
             RegisterRoutes(RouteTable.Routes);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            logger.Info("application started");
         }
 
         public static void RegisterRoutes(RouteCollection routes)
