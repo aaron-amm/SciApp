@@ -1,0 +1,26 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>upload file</title>
+    <script src="~/scripts/jquery-3.1.0.js"></script>
+
+</head>
+<body>
+    <div>
+        <form action="/file/upload" method="post" enctype="multipart/form-data">
+            <label>
+                Upload Image: <input type="file" name="uploadedFile" />
+            </label>
+            <br />
+            <br />
+            <input id="uploadFileButton" type="submit" value="upload file" class="submit" />
+        </form>
+
+    </div>
+</body>
+</html>

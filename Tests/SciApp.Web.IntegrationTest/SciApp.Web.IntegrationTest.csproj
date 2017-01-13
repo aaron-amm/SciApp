@@ -60,11 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBlock.cs" />
+    <Compile Include="FileInput.cs" />
+    <Compile Include="UploadFileTest.cs" />
     <Compile Include="LogInPageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DatePicker.cs" />
     <Compile Include="SpanElement.cs" />
     <Compile Include="UserHomePage.cs" />
+    <Compile Include="FileUploadPage.cs" />
     <Compile Include="UserLogInPage.cs" />
   </ItemGroup>
   <ItemGroup>
