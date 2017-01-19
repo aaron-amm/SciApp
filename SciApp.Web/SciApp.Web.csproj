@@ -161,6 +161,7 @@
     <Content Include="Global.asax" />
     <Content Include="Areas\Public\Views\File\Upload.cshtml" />
     <Content Include="Areas\Public\Views\File\UploadResult.cshtml" />
+    <Content Include="Areas\Public\Views\Home\AnchorTest.cshtml" />
     <None Include="scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="scripts\jquery-3.1.0.js" />
     <Content Include="scripts\jquery-3.1.0.min.js" />

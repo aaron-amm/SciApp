@@ -14,5 +14,9 @@ namespace SciHospital.WebApp.Areas.Public.Controllers
             return View();
         }
 
+        public ActionResult AnchorTest()
+        {
+            return View();
+        }
     }
 }

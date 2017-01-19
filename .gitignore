@@ -21,3 +21,4 @@ _ReSharper.*
 !**/packages/repositories.config
 x64
 uploads
+SciApp.VC.VC.opendb
