@@ -22,3 +22,5 @@ _ReSharper.*
 x64
 uploads
 SciApp.VC.VC.opendb
+SciApp.VC.db
+
