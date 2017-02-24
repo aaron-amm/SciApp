@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Web;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
 using NUnit.Framework;
-using Rhino.Mocks;
 
 namespace SciApp.Web.Test
 {
@@ -40,7 +35,6 @@ namespace SciApp.Web.Test
             }
 
             LogManager.ReconfigExistingLoggers();
-
             return memoryTarget;
         }
 
