@@ -115,8 +115,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="contents\css\style.css" />
     <Content Include="Content\images\calendar.gif" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -163,6 +163,13 @@
     <Content Include="Areas\Public\Views\File\Upload.cshtml" />
     <Content Include="Areas\Public\Views\File\UploadResult.cshtml" />
     <Content Include="Areas\Public\Views\Home\AnchorTest.cshtml" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="ValidationControl.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -211,6 +218,8 @@
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Public\Views\User\LogIn.cshtml" />
     <Content Include="Areas\Public\Views\User\Index.cshtml" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -226,7 +235,6 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="Areas\Public\Models\" />
     <Folder Include="Areas\Public\Views\Shared\" />
-    <Folder Include="Contr\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SciApp.Core\SciApp.Core.csproj">
