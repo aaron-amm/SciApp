@@ -8,12 +8,14 @@
 <html>
 <head>
     <title>title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
     <script src="~/scripts/jquery-3.1.1.js"></script>
     <script src="~/scripts/jquery-ui-1.12.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             console.log("loaded");
+            $("body").css('background-color', '#F00');
 
             $("#@Html.IdFor(m=>m.DateOfBirth)").datepicker({
                 changeMonth: true,
@@ -21,7 +23,7 @@
                 showOn: "both",
                 buttonImage: "/content/images/calendar.gif",
                 buttonImageOnly: true,
-                buttonText: "Select date", 
+                buttonText: "Select date",
                 dateFormat: "yy/mm/dd",
                 monthNamesShort: $.datepicker.regional["en"].monthNames
             });

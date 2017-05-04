@@ -1,8 +1,10 @@
-﻿using Bumblebee.Extensions;
+﻿using System.Drawing;
+using Bumblebee.Extensions;
 using Bumblebee.Setup;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
+using OpenQA.Selenium.Remote;
 
 namespace SciApp.Web.IntegrationTest
 {
@@ -23,7 +25,14 @@ namespace SciApp.Web.IntegrationTest
             ////var commandTimeout = TimeSpan.FromMinutes(5);
             //var driver = new RemoteWebDriver(new Uri(node), cap);
             //return driver;
-            var driver = new PhantomJSDriver();
+
+            var options = new PhantomJSOptions();
+            var userAgent =
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3";
+            options.AddAdditionalCapability("phantomjs.page.settings.userAgent", userAgent);
+            PhantomJSDriver driver = new PhantomJSDriver(options);
+
+            driver.Manage().Window.Size = new Size(320, 568);
             return driver;
         }
     }
@@ -36,15 +45,20 @@ namespace SciApp.Web.IntegrationTest
         {
             var session = Threaded<Session>.With<GridDriver>();
             string userName;
-            session.NavigateTo<UserLogInPage>("http://localhost:8080/user/login")
-            .UserNameField.EnterText("aaron")
+            var page = session.NavigateTo<UserLogInPage>("http://localhost:8080/user/login");
+
+            var driver = session.Driver;
+
+            page.UserNameField.EnterText("aaron")
             .PasswordField.EnterText("12345")
             .LoginButton.Click()
             .UserNameSpan()
             .Store(out userName, s => s.Text);
 
-            var takeScreenShort = (ITakesScreenshot)session.Driver;
-            takeScreenShort.GetScreenshot().SaveAsFile("login.jpg", ScreenshotImageFormat.Jpeg);
+            //transparent by default
+            driver.ExecuteScript<object>("$('body').css('background-color','white')");
+            var takeScreenShort = (ITakesScreenshot)driver;
+            takeScreenShort.GetScreenshot().SaveAsFile("login2.jpg", ScreenshotImageFormat.Jpeg);
 
             Assert.AreEqual("aaron", userName);
 
