@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using Bumblebee.Extensions;
 using Bumblebee.Setup;
 using NUnit.Framework;
@@ -13,8 +14,6 @@ namespace SciApp.Web.IntegrationTest
     {
         public IWebDriver CreateWebDriver()
         {
-            //const string node = "http://192.168.1.105:4444/wd/hub";
-            //var cap = DesiredCapabilities.Chrome();
             ////cap.SetCapability("browserName","chrome");
             ////cap.SetCapability("platform","WIN10");
             ////var driver = new RemoteWebDriver(new Uri(node), cap);
@@ -26,13 +25,21 @@ namespace SciApp.Web.IntegrationTest
             //var driver = new RemoteWebDriver(new Uri(node), cap);
             //return driver;
 
+            const string node = "http://localhost:4444/wd/hub";
+            var cap = DesiredCapabilities.Chrome();
+            var driver = new RemoteWebDriver(new Uri(node),cap);
+
+            driver.Manage().Window.Size = new Size(320, 568);
+            return driver;
+        }
+
+        private static PhantomJSDriver CreatePhantomJsDriver()
+        {
             var options = new PhantomJSOptions();
             var userAgent =
                 "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3";
             options.AddAdditionalCapability("phantomjs.page.settings.userAgent", userAgent);
             PhantomJSDriver driver = new PhantomJSDriver(options);
-
-            driver.Manage().Window.Size = new Size(320, 568);
             return driver;
         }
     }
