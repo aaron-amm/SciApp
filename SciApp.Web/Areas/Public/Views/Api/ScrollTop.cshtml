@@ -1,0 +1,43 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jQuery scrollTop</title>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <style>
+        .list-item {
+            border: 1px solid #000;
+            margin: 10px;
+            height: 250px;
+        }
+    </style>
+    <script>
+        $(function () {
+           var selectedItem= $("#item-5");
+            var middleOfScreenTop = ($(window).height() - selectedItem.height())/2;
+            console.log("middleOfScreenTop " + middleOfScreenTop);
+            $("html, body").scrollTop(selectedItem.offset().top - middleOfScreenTop);
+
+            $(window).scroll(function () {
+                console.log("windows scrollTop: " + $(this).scrollTop());
+                console.log("body scrollTop: " + $("body").scrollTop());
+            });
+            console.log("loaded");
+        });
+    </script>
+</head>
+<body>
+    @for (var i = 0; i < 10; i++)
+    {
+        <div id="item-@i" class="list-item">
+            <h1>item @i</h1>
+        </div>
+    }
+</body>
+</html>

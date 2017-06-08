@@ -3,14 +3,11 @@ using Bumblebee.Extensions;
 using Bumblebee.Interfaces;
 using Bumblebee.Setup;
 using Bumblebee.Setup.DriverEnvironments;
-using NUnit.Framework;
 
 namespace SciApp.Web.IntegrationTest
 {
-    [TestFixture]
     public class UploadFileTest
     {
-        [Test]
         public void Test()
         {
             const string filePath = @"c:\\silicon-valley.jpg";
@@ -24,7 +21,6 @@ namespace SciApp.Web.IntegrationTest
 
         }
 
-        [TearDown]
         public void TearDown()
         {
             Threaded<Session>.End();

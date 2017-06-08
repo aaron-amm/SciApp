@@ -36,6 +36,8 @@ namespace SciHospital.WebApp.Areas.Public.Controllers
         }
 
 
+
+
         public ActionResult Get()
         {
             var requestUri = Request.Url;

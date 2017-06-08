@@ -8,14 +8,67 @@
     <title>title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="~/scripts/jquery-3.1.1.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+
+            $(".edit-user-link-col").click(function(e) {
+                e.preventDefault();
+                $(".edit-user-panel").css("display", "block");
+            });
+
+        });
+    </script>
+    <style type="text/css">
+        .user-table {
+        }
+
+        .edit-user-panel {
+            display: none;            
+        }
+
+        .edit-user-link {
+            
+        }
+
+        .edit-user-link-col {
+            
+        }
+
+    </style>
 </head>
 <body>
-<h1 id="home">Home</h1>
+    <h1 id="home">Home</h1>
     <h2>User Home</h2>
     @if (Model != null)
     {
         <h1>Hello <span id="lblUsername">@Model.Username</span></h1>
     }
+
+    <div class="edit-user-panel">
+        <h2>edit users</h2>
+    </div>
+    <table class="user-table">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Edit</th>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td class="edit-user-link-col">
+                <a class="edit-user-link">edit</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td class="edit-user-link-col">
+                <a class="edit-user-link">edit</a>
+            </td>
+        </tr>
+    </table>
 
 </body>
 </html>

@@ -163,6 +163,7 @@
     <Content Include="Areas\Public\Views\File\Upload.cshtml" />
     <Content Include="Areas\Public\Views\File\UploadResult.cshtml" />
     <Content Include="Areas\Public\Views\Home\AnchorTest.cshtml" />
+    <Content Include="Areas\Public\Views\Api\ScrollTop.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -181,6 +182,7 @@
     <Compile Include="App_Start\WindsorControllerFactory.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Public\Controllers\ApiController.cs" />
     <Compile Include="Areas\Public\Controllers\FileController.cs" />
     <Compile Include="Areas\Public\Controllers\HomeController.cs" />
     <Compile Include="Areas\Public\Controllers\IPatientRepository.cs" />

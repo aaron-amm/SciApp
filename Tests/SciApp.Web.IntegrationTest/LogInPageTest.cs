@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using Bumblebee.Extensions;
 using Bumblebee.Setup;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using OpenQA.Selenium.Remote;
+using Xunit;
 
 namespace SciApp.Web.IntegrationTest
 {
@@ -25,12 +26,13 @@ namespace SciApp.Web.IntegrationTest
             //var driver = new RemoteWebDriver(new Uri(node), cap);
             //return driver;
 
-            const string node = "http://localhost:4444/wd/hub";
-            var cap = DesiredCapabilities.Chrome();
-            var driver = new RemoteWebDriver(new Uri(node),cap);
+            //const string node = "http://localhost:4444/wd/hub";
+            //var cap = DesiredCapabilities.Chrome();
+            //var driver = new RemoteWebDriver(new Uri(node), cap, TimeSpan.FromMinutes(3));
 
-            driver.Manage().Window.Size = new Size(320, 568);
-            return driver;
+            //driver.Manage().Window.Size = new Size(320, 568);
+            //return driver;
+            return CreatePhantomJsDriver();
         }
 
         private static PhantomJSDriver CreatePhantomJsDriver()
@@ -40,19 +42,48 @@ namespace SciApp.Web.IntegrationTest
                 "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3";
             options.AddAdditionalCapability("phantomjs.page.settings.userAgent", userAgent);
             PhantomJSDriver driver = new PhantomJSDriver(options);
+            driver.Manage().Window.Size = new Size(800, 600);
             return driver;
         }
     }
-    [TestFixture]
-    public class UserLogInPageTest
-    {
 
-        [Test]
+
+    public class UserLogInPageTest : IClassFixture<UserLogInPageFixture>
+    {
+        private readonly Session session;
+
+        public UserLogInPageTest(UserLogInPageFixture userLogInPageFixture)
+        {
+            session = userLogInPageFixture.Session;
+        }
+
+
+        [Fact]
+        public void ClickEditLink_EditUserPanelShow()
+        {
+            var page = session.NavigateTo<UserIndexPage>("http://localhost:8080/user/index");
+            var driver = session.Driver;
+            //0,1,2
+            page.UserTableRows[1].EditUserLink.Click();
+
+
+            //transparent by default
+            driver.ExecuteScript<object>("$('body').css('background-color','white')");
+            var takeScreenShort = (ITakesScreenshot)driver;
+            takeScreenShort.GetScreenshot().SaveAsFile("login2.jpg", ScreenshotImageFormat.Jpeg);
+
+            var displayValue = driver.FindElement(By.CssSelector(".edit-user-panel")).GetCssValue("display");
+            Assert.Equal("block", displayValue);
+        }
+
+
+
+
+        [Fact]
         public void LogIn_ValidInput_LogInSuccessfully()
         {
-            var session = Threaded<Session>.With<GridDriver>();
             string userName;
-            var page = session.NavigateTo<UserLogInPage>("http://localhost:8080/user/login");
+            var page = session.NavigateTo<UserLogInPage>("http://192.168.1.105:8080/user/login");
 
             var driver = session.Driver;
 
@@ -67,16 +98,45 @@ namespace SciApp.Web.IntegrationTest
             var takeScreenShort = (ITakesScreenshot)driver;
             takeScreenShort.GetScreenshot().SaveAsFile("login2.jpg", ScreenshotImageFormat.Jpeg);
 
-            Assert.AreEqual("aaron", userName);
+            Assert.Equal("aaron", userName);
 
+        }
+
+        [Fact]
+        public void LogIn_ValidInput_LogInSuccessfully2()
+        {
+            string userName;
+            var page = session.NavigateTo<UserLogInPage>("http://192.168.1.105:8080/user/login");
+
+            var driver = session.Driver;
+
+            page.UserNameField.EnterText("aaron")
+            .PasswordField.EnterText("12345")
+            .LoginButton.Click()
+            .UserNameSpan()
+            .Store(out userName, s => s.Text);
+            Assert.Equal("aaron", userName);
+        }
+
+    }
+
+    public class UserLogInPageFixture : IDisposable
+    {
+
+        public Session Session { get; private set; }
+        public UserLogInPageFixture()
+        {
+            Session = Threaded<Session>.With<GridDriver>();
         }
 
         ///The tear down operation is needed in case there is a failure during the test.  The Session will need to be
         ///cleaned up.
-        [TearDown]
-        public void TearDown()
+        public void Dispose()
         {
             Threaded<Session>.End();
         }
     }
+
+
+
 }
